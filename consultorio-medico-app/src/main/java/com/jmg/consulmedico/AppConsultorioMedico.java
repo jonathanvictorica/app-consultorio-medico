@@ -1,6 +1,6 @@
 package com.jmg.consulmedico;
 
-import com.jmg.consulmedico.VISTA.VLoginSistema;
+import com.jmg.consulmedico.view.VLoginSistema;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
