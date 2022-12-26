@@ -7,7 +7,7 @@ Proyecto
 * [Objetivo del Programa ](#-objetivo-del-programa)
 * [Remasterización](#-remasterizacin)
 * [Tecnologías](#-tecnologías)
-* [Play](#-play)
+* [Ejecutar](#-ejecutar)
 
 ## 🚀 Motivación
 
@@ -35,7 +35,7 @@ Tareas Pendiente: Implementar algún ORM como spring-jpa-data, o spring-mongodb 
 * Maven
 * Docker (solamente para la BBDD mysql)
 
-## 🚀 Play
+## 🚀 Ejecutar
 
 * Si es la primera vez que va a ejecutar el proyecto en su máquina, ejecutar el archivo execute-1-instalacion.sh
 * Para inicializar el entorno de datos ejecutar execute-2-configuracion.sh
