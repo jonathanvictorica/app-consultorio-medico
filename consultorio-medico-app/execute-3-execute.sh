@@ -1,0 +1,1 @@
+java -jar ./target/consultorio-medico-app.jar
