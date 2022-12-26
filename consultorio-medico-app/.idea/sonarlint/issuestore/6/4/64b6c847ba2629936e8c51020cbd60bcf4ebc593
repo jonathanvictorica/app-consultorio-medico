@@ -1,0 +1,12 @@
+
+a
+java:S1192;"KDefine a constant instead of duplicating this literal "autorizado" 4 times.(ÕÔÑ–
+d
+java:S2095&"GUse try-with-resources or close this "Statement" in a "finally" clause.(ï¬×8Ž·ÔåÔ0
+q
+java:S20958"OUse try-with-resources or close this "CallableStatement" in a "finally" clause.( ¨€äøÿÿÿÿ8Ž·ÔåÔ0
+q
+java:S2095P"OUse try-with-resources or close this "CallableStatement" in a "finally" clause.(È»àçþÿÿÿÿ8Ž·ÔåÔ0
+>	java:S108/")Either remove or fill this block of code.(À‹ø„
+>	java:S108G")Either remove or fill this block of code.(À‹ø„
+>	java:S108_")Either remove or fill this block of code.(À‹ø„

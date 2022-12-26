@@ -1,0 +1,8 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Êµ§ê
+H
+java:S4925!"-Remove this "Class.forName()", it is useless.(¹µÖÁüÿÿÿÿ
+H
+java:S1905&"-Remove this unnecessary cast to "Connection".(Ïè¨ñøÿÿÿÿ
+D
+java:S2115&")Add password protection to this database.(Ïè¨ñøÿÿÿÿ

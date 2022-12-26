@@ -1,0 +1,24 @@
+
+J
+java:S37408"/Provide the parametrized type for this generic.(áŸ£Òüÿÿÿÿ
+d
+java:S2095u"GUse try-with-resources or close this "Statement" in a "finally" clause.(ï¬×8Ú§ÔåÔ0
+m
+java:S2095„"OUse try-with-resources or close this "CallableStatement" in a "finally" clause.(×¹ŠÁ8Û§ÔåÔ0
+d
+java:S2095d"GUse try-with-resources or close this "Statement" in a "finally" clause.(ï¬×8Û§ÔåÔ0
+…
+java:S1845"nRename method "procesarTurnoEstudio" to prevent any misunderstanding/clash with method "ProcesarTurnoEstudio".(»™úð
+W
+java:S1161!":Add the "@Override" annotation above this method signature(Öë¼Ž8ï§ÔåÔ0
+Y
+java:S1854-"CRemove this useless assignment to local variable "vhorarioestudio".(˜ïé¬
+J
+java:S1481-"4Remove this unused "vhorarioestudio" local variable.(˜ïé¬
+D
+java:S5413J")Verify that "remove()" is used correctly.(‘¤ÅÜüÿÿÿÿ
+D
+java:S5413J")Verify that "remove()" is used correctly.(‘¤ÅÜüÿÿÿÿ
+>	java:S108m")Either remove or fill this block of code.(À‹ø„
+>	java:S108|")Either remove or fill this block of code.(À‹ø„
+?	java:S108Š")Either remove or fill this block of code.(À‹ø„

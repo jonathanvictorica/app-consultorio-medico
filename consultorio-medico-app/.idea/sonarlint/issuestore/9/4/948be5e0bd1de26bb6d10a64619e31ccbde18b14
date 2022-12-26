@@ -1,0 +1,36 @@
+
+J
+java:S3740;"/Provide the parametrized type for this generic.(÷¶Šúÿÿÿÿ
+E
+java:S3740Z"/Provide the parametrized type for this generic.(Øşúô
+F
+java:S3740Î"/Provide the parametrized type for this generic.(ÙÊ‹Â
+b
+java:S1192\"GDefine a constant instead of duplicating this literal "Dialog" 3 times.(‚ÑıŒûÿÿÿÿ
+C
+java:S1604G"(Make this anonymous inner class a lambda(­•²şÿÿÿÿ
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ˆĞàöıÿÿÿÿ8ç…½âÔ0
+v
+java:S1450Ï"ZRemove the "cmdIngresar" field and declare it as a local variable in the relevant methods.(Ò´ø¹şÿÿÿÿ
+r
+java:S1450Ğ"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ
+r
+java:S1450Ñ"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ
+r
+java:S1450Ò"VRemove the "jLabel3" field and declare it as a local variable in the relevant methods.(Îä€øÿÿÿÿ
+p
+java:S1450Ô"ZRemove the "panelImage2" field and declare it as a local variable in the relevant methods.(×‹†G
+A
+java:S1874(",Remove this use of "show"; it is deprecated.(§Ö¨f
+Z
+java:S1854¹"CRemove this useless assignment to local variable "vopcionesmedico".(™ÖÔĞ
+F
+java:S1172¢"*Remove this unused method parameter "evt".(õ©âşÿÿÿÿ
+F
+java:S1874£"/Remove this use of "getText"; it is deprecated.(¼£„
+K
+java:S1874¥"/Remove this use of "getText"; it is deprecated.(üšìóùÿÿÿÿ
+K
+java:S1481¹"4Remove this unused "vopcionesmedico" local variable.(™ÖÔĞ
+H
+java:S1874¼",Remove this use of "hide"; it is deprecated.(›¿åùùÿÿÿÿ

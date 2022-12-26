@@ -1,0 +1,23 @@
+
+K
+java:S1066Ë"/Merge this if statement with the enclosing one.(„ê«Õøÿÿÿÿ
+W	java:S107*"BConstructor has 14 parameters, which is greater than 7 authorized.(‘ûÙé
+W	java:S107F"BConstructor has 16 parameters, which is greater than 7 authorized.(òêë
+f	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ûÙé
+f	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ûÙé
+k	java:S117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¿¾¸ıÿÿÿÿ
+f	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òêë
+f	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òêë
+l	java:S117“"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á‰€Šşÿÿÿÿ
+l	java:S117Ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òö¯Ëûÿÿÿÿ
+m	java:S116"SRename this field "Telefono" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Ÿ¬şÿÿÿÿ
+i	java:S116"ORename this field "Sexo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ¹­¼ÿÿÿÿÿ
+>	java:S108t")Either remove or fill this block of code.(À‹ø„
+]
+java:S1126"AReplace this if-then-else statement by a single return statement.(„ê«Õøÿÿÿÿ
+?	java:S108‹")Either remove or fill this block of code.(À‹ø„
+?	java:S108 ")Either remove or fill this block of code.(À‹ø„
+?	java:S108»")Either remove or fill this block of code.(À‹ø„
+?	java:S108Ñ")Either remove or fill this block of code.(À‹ø„
+?	java:S108ê")Either remove or fill this block of code.(À‹ø„
+?	java:S108„")Either remove or fill this block of code.(À‹ø„
