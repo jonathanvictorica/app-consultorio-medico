@@ -31,10 +31,13 @@ Notas: Recuerde que cada vez que ejecute execute-2-configuracion.sh se pisaran l
 
 ### Modelo de Base de Datos
 En este diagrama se presentan las entidades más relevantes de la base de datos.
-![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/der.png)
+
+![Modelo de Base de Datos](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/der.png)
 
 ### Diagrama de Clases
 A continuación se presentan los diagramas de clases de los módulos principales
+
+![Diagrama de Clases](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/DC.png)
 
 ### Tecnologías
 
