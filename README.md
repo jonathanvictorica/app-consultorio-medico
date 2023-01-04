@@ -55,15 +55,23 @@ A continuación se presentan los diagramas de clases de los módulos principales
 Tareas Pendiente: Implementar algún ORM como spring-jpa-data, o spring-mongodb y sacar la lógica implementada en la base de datos a través de procedimientos almacenados.
 
 ## 🚀 Demo
-
+* Pantalla de Login
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/1.png)
+* Login Exitoso
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/2.png)
+* Pantalla principal con todas las opciones del sistema. Se habilitan según el perfil del usuario logeuado.
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/3.png)
+* Pantalla de solicitar turno de Visitar Médico de Cabecera
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/4.png)
+* Se completan los datos del paciente y el tipo de turno que solicta
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/5.png)
+* El sistema muestra la pantalla con el médico de cabecera del paciente
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/6.png)
+* El usuario elige fecha de atención
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/7.png)
+* El usuario elige el horario de atención
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/8.png)
+* Se visualiza el comprobante de turno de la visita de especialista
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/9.png)
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/10.png)
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/11.png)
