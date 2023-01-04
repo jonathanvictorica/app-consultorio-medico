@@ -1,9 +1,10 @@
 # ☕🎯 App Consultorio Médico Turnos - JAVA
-Proyecto
+   
+   Este proyecto fue desarrollado como trabajo final de una materia "Desarrollo de Sistemas" de la carrera Técnico en Computación de la Escuela Técnica N°35 "Ing. Eduardo Latzina" , Ciudad de Buenos Aires.
+El mismo trata de un sistema de gestión de turnos de un consultorio médico.
 
 ## Índice
 
-- [Motivación](#-motivacin)
 - [Objetivo](#-objetivo)
 - [Ejecutar](#-ejecutar)
 - [Documentación Técnica de la Solución](#-documentacin-tcnica-de-la-solucin)
@@ -13,15 +14,10 @@ Proyecto
     - [Remasterización](#-remasterizacin)
 - [Demo](#-demo)
 
-## 🚀 Motivación
-
-   Este proyecto fue desarrollado como trabajo final de una materia "Desarrollo de Sistemas" de la carrera Técnico en Computación de la Escuela Técnica N°35 "Ing. Eduardo Latzina" , Ciudad de Buenos Aires.
-El mismo trata de un sistema de gestión de turnos de un consultorio médico.
-
 ## 🚀 Objetivo 
     
-   El sistema permite gestionar alta, bajas, reprogramaciones y cancelaciones de turnos tanto para visita y estudios médicos. El mismo ofrece una vista para perfil
-ADMIN, Médico y Recepcionista del consultorio médico. 
+   El sistema permite gestionar alta, bajas, reprogramaciones y cancelaciones de turnos tanto para visita y estudios médicos. Este sistema ofrece una vista para perfil
+Admin, Médico y Recepcionista del consultorio médico. 
 
 ## 🚀 Ejecutar
 
@@ -35,6 +31,7 @@ Notas: Recuerde que cada vez que ejecute execute-2-configuracion.sh se pisaran l
 
 ### Modelo de Base de Datos
 En este diagrama se presentan las entidades más relevantes de la base de datos.
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/der.png)
 
 ### Diagrama de Clases
 A continuación se presentan los diagramas de clases de los módulos principales
