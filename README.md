@@ -1,4 +1,4 @@
-# ☕🎯 App Consultorio Médico - JAVA
+# ☕🎯 App Consultorio Médico Turnos - JAVA
 Proyecto
 
 ## Índice

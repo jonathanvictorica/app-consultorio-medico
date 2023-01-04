@@ -3,12 +3,8 @@ C
 docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-l
-<src/main/java/com/jmg/consulmedico/AppConsultorioMedico.java,7\8\78d01e76ab03435324cca036bd8c6e9ddef5654f
 i
 9src/main/java/com/jmg/consulmedico/config/ConexionDB.java,6\8\68ce18453521bcc9d019966e4fbe10da7d589926
-m
-=src/main/java/com/jmg/consulmedico/config/DataLoadConfig.java,4\2\4274c1d0f7caa2d05783aa59d4c4ab209c2a045f
 j
 :src/main/java/com/jmg/consulmedico/view/VLoginSistema.java,9\4\948be5e0bd1de26bb6d10a64619e31ccbde18b14
 i
@@ -47,3 +43,7 @@ f
 6src/main/java/com/jmg/consulmedico/model/Paciente.java,d\e\de39ad1c0290bf9487a67cb300add5396b8088c7
 t
 Dsrc/main/java/com/jmg/consulmedico/model/PacienteMedicoCabecera.java,6\4\64b6c847ba2629936e8c51020cbd60bcf4ebc593
+p
+@src/main/java/com/jmg/consulmedico/model/PacienteObraSocial.java,7\f\7f51e6621d0cc79955e3ee9d11933bf8010a280f
+m
+=src/main/java/com/jmg/consulmedico/model/RealizarEstudio.java,5\7\57a7f870b259a4809e05b228d8b096161a0159ff
