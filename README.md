@@ -73,23 +73,43 @@ Tareas Pendiente: Implementar algún ORM como spring-jpa-data, o spring-mongodb 
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/8.png)
 * Se visualiza el comprobante de turno de la visita de especialista <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/9.png)
+* Menú de opciones para autorizar estudios/visitas especialistas que deriva el médico de cabecera <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/10.png)
+* Pantalla para autorizar estudios <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/11.png)
+* Se elige el paciente y el estudio autorizar <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/12.png)
+* Mensaje de confirmación de estudio autorizado <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/13.png)
+* Autorizar visita con especialista <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/14.png)
+* Se elige el paciente y la especialidad derivada <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/15.png)
+* Mensaje de confirmación de visita a especialista autorizada <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/16.png)
+* Pantalla para solicitar turno con un especialista <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/17.png)
+* Pantalla para elegir fecha, horario y médico de atención <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/18.png)
+* Pantalla de confirmación de turno <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/19.png)
+* Solicitar turno para realizar estudio <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/20.png)
+* Elegir paciente y estudio a realizar <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/21.png)
+* Seleccionar fecha y hora de atención del estudio <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/22.png)
+* Confirmación de turno para realizar estudio <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/23.png)
+* Pantalla para procesar cambio de turno <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/24.png)
+* Mensaje de confirmación de cambio de turno <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/25.png)
+* Pantalla para procesar atención de turno de realización de estudio <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/26.png)
+* Pantalla para procesar atención de turno de médico especialista <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/27.png)
+* Pantalla para dar de alta una obra social en el sistema <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/28.png)
+* En caso de solicitar turno y el paciente no este registrado en el sistema, se deriva automáticamente a la siguiente pantalla <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/29.png)
