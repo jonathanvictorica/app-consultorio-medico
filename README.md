@@ -55,23 +55,23 @@ A continuación se presentan los diagramas de clases de los módulos principales
 Tareas Pendiente: Implementar algún ORM como spring-jpa-data, o spring-mongodb y sacar la lógica implementada en la base de datos a través de procedimientos almacenados.
 
 ## 🚀 Demo
-* Pantalla de Login
+* Pantalla de Login <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/1.png)
-* Login Exitoso
+* Login Exitoso <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/2.png)
-* Pantalla principal con todas las opciones del sistema. Se habilitan según el perfil del usuario logeuado.
+* Pantalla principal con todas las opciones del sistema. Se habilitan según el perfil del usuario logeuado. <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/3.png)
-* Pantalla de solicitar turno de Visitar Médico de Cabecera
+* Pantalla de solicitar turno de Visitar Médico de Cabecera <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/4.png)
-* Se completan los datos del paciente y el tipo de turno que solicta
+* Se completan los datos del paciente y el tipo de turno que solicta <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/5.png)
-* El sistema muestra la pantalla con el médico de cabecera del paciente
+* El sistema muestra la pantalla con el médico de cabecera del paciente <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/6.png)
-* El usuario elige fecha de atención
+* El usuario elige fecha de atención <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/7.png)
-* El usuario elige el horario de atención
+* El usuario elige el horario de atención <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/8.png)
-* Se visualiza el comprobante de turno de la visita de especialista
+* Se visualiza el comprobante de turno de la visita de especialista <br />
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/9.png)
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/10.png)
 ![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/11.png)
