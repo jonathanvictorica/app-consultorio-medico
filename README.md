@@ -3,30 +3,43 @@ Proyecto
 
 ## Índice
 
-* [Motivación](#-motivacion)
-* [Objetivo del Programa ](#-objetivo-del-programa)
-* [Remasterización](#-remasterizacin)
-* [Tecnologías](#-tecnologías)
-* [Ejecutar](#-ejecutar)
+- [Motivación](#-motivacin)
+- [Objetivo](#-objetivo)
+- [Ejecutar](#-ejecutar)
+- [Documentación Técnica de la Solución](#-documentacin-tcnica-de-la-solucin)
+    - [Modelo de Base de Datos](#-modelo-de-base-de-datos)
+    - [Diagrama de Clases](#diagrama-de-clases)
+    - [Tecnologías](#-tecnologas)
+    - [Remasterización](#-remasterizacin)
+- [Demo](#-demo)
 
 ## 🚀 Motivación
 
    Este proyecto fue desarrollado como trabajo final de una materia "Desarrollo de Sistemas" de la carrera Técnico en Computación de la Escuela Técnica N°35 "Ing. Eduardo Latzina" , Ciudad de Buenos Aires.
 El mismo trata de un sistema de gestión de turnos de un consultorio médico.
 
-## 🚀 Objetivo del Programa 
+## 🚀 Objetivo 
     
    El sistema permite gestionar alta, bajas, reprogramaciones y cancelaciones de turnos tanto para visita y estudios médicos. El mismo ofrece una vista para perfil
 ADMIN, Médico y Recepcionista del consultorio médico. 
 
-## 🚀 Remasterización
+## 🚀 Ejecutar
 
-   Cuando se desarrolló este juego, se usó JDK 1.8. Es por esta razón que decidí actualizarlo para que sea un proyecto spring-boot con maven, y un JDK 17.
+* Si es la primera vez que va a ejecutar el proyecto en su máquina, ejecutar el archivo execute-1-instalacion.sh
+* Para inicializar el entorno de datos ejecutar execute-2-configuracion.sh
+* Por último, debe ejecutar execute-3-execute.sh
 
+Notas: Recuerde que cada vez que ejecute execute-2-configuracion.sh se pisaran los datos.
 
-Tareas Pendiente: Implementar algún ORM como spring-jpa-data, o spring-mongodb y sacar la lógica implementada en la base de datos a través de procedimientos almacenados.
+## 🚀 Documentación Técnica de la Solución
 
-## 🚀 Tecnologías
+### Modelo de Base de Datos
+En este diagrama se presentan las entidades más relevantes de la base de datos.
+
+### Diagrama de Clases
+A continuación se presentan los diagramas de clases de los módulos principales
+
+### Tecnologías
 
 * JDK 17
 * Mysql
@@ -35,13 +48,40 @@ Tareas Pendiente: Implementar algún ORM como spring-jpa-data, o spring-mongodb 
 * Maven
 * Docker (solamente para la BBDD mysql)
 
-## 🚀 Ejecutar
+### Remasterización
 
-* Si es la primera vez que va a ejecutar el proyecto en su máquina, ejecutar el archivo execute-1-instalacion.sh
-* Para inicializar el entorno de datos ejecutar execute-2-configuracion.sh
-* Por último, debe ejecutar execute-3-execute.sh 
+   Cuando se desarrolló este juego, se usó JDK 1.8. Es por esta razón que decidí actualizarlo para que sea un proyecto spring-boot con maven, y un JDK 17.
 
-Notas: Recuerde que cada vez que ejecute execute-2-configuracion.sh se pisaran los datos.
+Tareas Pendiente: Implementar algún ORM como spring-jpa-data, o spring-mongodb y sacar la lógica implementada en la base de datos a través de procedimientos almacenados.
 
+## 🚀 Demo
 
-
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/1.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/2.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/3.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/4.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/5.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/6.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/7.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/8.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/9.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/10.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/11.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/12.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/13.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/14.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/15.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/16.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/17.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/18.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/19.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/20.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/21.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/22.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/23.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/24.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/25.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/26.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/27.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/28.png)
+![Demo](https://github.com/jonathanvictorica/app-consultorio-medico/blob/develop/docs/29.png)
