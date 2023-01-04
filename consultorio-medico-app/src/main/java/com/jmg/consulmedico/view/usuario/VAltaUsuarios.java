@@ -1,19 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.usuario;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.Usuario;
 
 import javax.swing.*;
 
-/**
- *
- * @author Alumno
- */
+
 public class VAltaUsuarios extends javax.swing.JFrame {
 
     /**
@@ -138,9 +130,9 @@ public class VAltaUsuarios extends javax.swing.JFrame {
       if(this.validardatos())
       {
         Usuario usuarionuevo = new Usuario(this.txtUsuario.getText(),this.txtContraseña.getText(),(String)this.cboCargo.getSelectedItem());
-       usuarionuevo.setCargo((String)this.cboCargo.getSelectedItem());
-        usuarionuevo.registrarUsuario(new ConexionDB());
-         this.hide();
+          usuarionuevo.setCargo((String) this.cboCargo.getSelectedItem());
+          usuarionuevo.registrarUsuario();
+          this.hide();
       }
     }//GEN-LAST:event_jButton1ActionPerformed
 

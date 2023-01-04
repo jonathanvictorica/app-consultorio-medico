@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -39,17 +35,16 @@ public class TurnoEstudio extends Turno {
         return estudio;
     }
 
-    public void ProcesarTurnoEstudio(ConexionDB conexion) {
-       if(this.paciente.VerificarOrdenEstudio(conexion,this.estudio,this.paciente.getCodigopaciente()))
-       {
-           VHorarioEstudio vhorarioestudio = new VHorarioEstudio(this);
-           
-       }
-       else
-        {
-             JOptionPane.showMessageDialog(null, "Usted no tiene una orden para realizar este estudio o ya tiene un turno asignado para realizarlo.");
-            
-             
+    public static void BuscarTurnodeEstudiodePaciente(List<Turno> turnosdepaciente, int codigopaciente) {
+        try {
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+            ResultSet rs = statement.executeQuery("select * from verturnoestudio where codigopaciente=" + codigopaciente);
+            while (rs.next()) {
+                TurnoEstudio turnoestudio = new TurnoEstudio(new Estudio(rs.getString(4)), rs.getInt(1), new Paciente(), rs.getDate(2), rs.getTime(3), true);
+                turnosdepaciente.add(turnoestudio);
+            }
+        } catch (SQLException ex) {
+
         }
     }
     
@@ -93,49 +88,46 @@ public class TurnoEstudio extends Turno {
         
     }
 
+    public void ProcesarTurnoEstudio() {
+        if (this.paciente.VerificarOrdenEstudio(this.estudio, this.paciente.getCodigopaciente())) {
+            VHorarioEstudio vhorarioestudio = new VHorarioEstudio(this);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Usted no tiene una orden para realizar este estudio o ya tiene un turno asignado para realizarlo.");
+
+
+        }
+    }
+
     private void recuperarHorariosOcupados(List<Time> horariosocupados,Date dia) {
-        ConexionDB conexion = new ConexionDB(); 
+
         try {
-              
-                 java.sql.Statement statement = conexion.getConexion().createStatement();
-                ResultSet rs = statement.executeQuery("select horaturno from turno,turnoestudio,estudio where turnoestudio.codigoestudio = estudio.codigoestudio and turno.codigoturno=turnoestudio.codigoturno and fechaturno ='" + dia + "' and estudio.nombre ='"+this.estudio.getEstudio()+"'");
-                
+
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+            ResultSet rs = statement.executeQuery("select horaturno from turno,turnoestudio,estudio where turnoestudio.codigoestudio = estudio.codigoestudio and turno.codigoturno=turnoestudio.codigoturno and fechaturno ='" + dia + "' and estudio.nombre ='" + this.estudio.getEstudio() + "'");
+
                 while(rs.next())
                 {
                   horariosocupados.add(rs.getTime(1));
-                  
-                    
+
+
                 }
             } catch (SQLException ex) {
-               
-            }
-            
-    }
 
-    public static void BuscarTurnodeEstudiodePaciente(ConexionDB conexion, List<Turno> turnosdepaciente, int codigopaciente) {
-       try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
-              ResultSet rs = statement.executeQuery("select * from verturnoestudio where codigopaciente="+ codigopaciente );
-              while(rs.next())
-              {
-                 TurnoEstudio turnoestudio = new TurnoEstudio(new Estudio(rs.getString(4)),rs.getInt(1),new Paciente(),rs.getDate(2), rs.getTime(3),true);
-                 turnosdepaciente.add(turnoestudio);
-              }
-        } catch (SQLException ex) {
-         
-        }
+            }
+
     }
 
     public void procesarTurnoEstudio() {
          try {
-             ConexionDB conexion = new ConexionDB();
-             CallableStatement procedimiento = conexion.getConexion().prepareCall("CALL ModificarEstadoTurno(?)");
-                procedimiento.setInt("codigo_visita",this.codigoturno);
-                
-                  
-                procedimiento.execute();
-                  
-        } catch (SQLException ex) {
+
+             CallableStatement procedimiento = ConexionDB.getConexion().prepareCall("CALL ModificarEstadoTurno(?)");
+             procedimiento.setInt("codigo_visita", this.codigoturno);
+
+
+             procedimiento.execute();
+
+         } catch (SQLException ex) {
            
         }
 

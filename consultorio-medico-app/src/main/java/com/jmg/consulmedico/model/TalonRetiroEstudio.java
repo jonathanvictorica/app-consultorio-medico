@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -39,18 +35,16 @@ public class TalonRetiroEstudio {
 
     public void almacenarTalon() {
         try {
-             ConexionDB conexion = new ConexionDB();
-             CallableStatement procedimiento = conexion.getConexion().prepareCall("CALL Procesarestudio(?,?,?)");
-                procedimiento.setInt("codigoturno",this.turno.codigoturno);
-                procedimiento.setString("nombreestudio", ((TurnoEstudio)this.turno).getEstudio().getEstudio());
-                procedimiento.setDate("fecharetiro", this.fecharetiro);
-                
-                
-                
-                  
-                procedimiento.execute();
 
-                
+            CallableStatement procedimiento = ConexionDB.getConexion().prepareCall("CALL Procesarestudio(?,?,?)");
+            procedimiento.setInt("codigoturno", this.turno.codigoturno);
+            procedimiento.setString("nombreestudio", ((TurnoEstudio) this.turno).getEstudio().getEstudio());
+            procedimiento.setDate("fecharetiro", this.fecharetiro);
+
+
+            procedimiento.execute();
+
+
         } catch (SQLException ex) {
            
         }

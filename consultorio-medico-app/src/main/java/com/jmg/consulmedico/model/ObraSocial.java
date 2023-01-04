@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -53,35 +49,30 @@ public class ObraSocial {
         this.codigopostal = codigopostal;
     }
 
-    public static void BuscarObrasSocialesActiva(ConexionDB conexion, List<ObraSocial> obrasocial) {
+    public static void BuscarObrasSocialesActiva(List<ObraSocial> obrasocial) {
         try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
             ResultSet rs = statement.executeQuery("SELECT * from obrasocial where activo=true");
-            while(rs.next())
-            {
+            while (rs.next()) {
                 ObraSocial obrasocialnueva = new ObraSocial(rs.getString(2));
                 obrasocial.add(obrasocialnueva);
             }
         } catch (SQLException ex) {
-           
+
         }
             
            
     }
-    
 
 
-    public boolean verificarVencimiento(ConexionDB conexion, Date fechavencimiento) {
+    public boolean verificarVencimiento(Date fechavencimiento) {
         try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
             ResultSet rs = statement.executeQuery("SELECT date(now())");
-            if(rs.next())
-            {
-                if(rs.getDate(1).after(fechavencimiento))
-                {
+            if (rs.next()) {
+                if (rs.getDate(1).after(fechavencimiento)) {
                     return true;
-                }
-                else
+                } else
                 {
                     if(rs.getDate(1).equals(fechavencimiento))
                     {
@@ -101,17 +92,17 @@ public class ObraSocial {
               
     }
 
-    public void almacenarObraSocial(ConexionDB conexion, String observacion) {
-          try {
+    public void almacenarObraSocial(String observacion) {
+        try {
             //procedimiento almacenado de almacenar paciente
-             CallableStatement procedimiento = conexion.getConexion().prepareCall("CALL AlmacenarObraSocial(?,?,?,?,?,?,?,?)");
-                procedimiento.setString("nombre_obra_social",this.nombreOS);
-                procedimiento.setString("nombre_localidad", this.localidad.getNombreLoc());
-                procedimiento.setString("direccion", this.direccion);
-                procedimiento.setString("altura",this.altura);
-                procedimiento.setString("telefono", this.telefono);
-                procedimiento.setString("codigopostal", this.codigopostal);
-                procedimiento.setString("observacion", observacion);
+            CallableStatement procedimiento = ConexionDB.getConexion().prepareCall("CALL AlmacenarObraSocial(?,?,?,?,?,?,?,?)");
+            procedimiento.setString("nombre_obra_social", this.nombreOS);
+            procedimiento.setString("nombre_localidad", this.localidad.getNombreLoc());
+            procedimiento.setString("direccion", this.direccion);
+            procedimiento.setString("altura", this.altura);
+            procedimiento.setString("telefono", this.telefono);
+            procedimiento.setString("codigopostal", this.codigopostal);
+            procedimiento.setString("observacion", observacion);
                
                 procedimiento.registerOutParameter("registrado", Types.BOOLEAN);        
                 procedimiento.execute();

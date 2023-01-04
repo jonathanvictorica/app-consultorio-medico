@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.procesarestudio;
 
 import com.jmg.consulmedico.model.TalonRetiroEstudio;
@@ -9,10 +5,7 @@ import com.jmg.consulmedico.model.TurnoEstudio;
 
 import java.sql.Date;
 
-/**
- *
- * @author Alumno
- */
+
 public class VTalonRetiroEstudio extends javax.swing.JFrame {
     
 

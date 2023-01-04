@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -47,7 +43,6 @@ public class Turno {
 
 
     public static void recuperarFechas(JComboBox cboFechas) {
-       ConexionDB conexion = new ConexionDB();
        int minutos=1440;
        cboFechas.removeAllItems();
        cboFechas.addItem("");
@@ -57,8 +52,8 @@ public class Turno {
             
             try {
                 minutos=minutos+1440;
-                 java.sql.Statement statement = conexion.getConexion().createStatement();
-                ResultSet rs = statement.executeQuery("SELECT date(now() + interval "+ minutos + " minute)");
+                 java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+                ResultSet rs = statement.executeQuery("SELECT date(now() + interval " + minutos + " minute)");
                 if(rs.next())
                 {
                   cboFechas.addItem(rs.getDate(1));
@@ -72,28 +67,21 @@ public class Turno {
                     
         }
     }
-    
 
-   
 
-   
-    
-  
-
-     public static void ProcesarSolicituddeTurno(ConexionDB conexion, Turno turno) {
-            ObraSocial obrasocialpaciente = null;
-         switch(turno.getClass().getSimpleName())
-        {
+    public static void ProcesarSolicituddeTurno(Turno turno) {
+        ObraSocial obrasocialpaciente = null;
+        switch (turno.getClass().getSimpleName()) {
             case "Visita":
-                  ((Visita)turno).getPaciente().setPacienteobrasocial(new PacienteObraSocial(((Visita)turno).getPaciente()));
-                  ((Visita)turno).getPaciente().getPacienteobrasocial().buscarObraSocial(conexion);
-                  
-                 obrasocialpaciente = ((Visita)turno).getPaciente().getPacienteobrasocial().getObrasocial().get(0);
-                  
+                ((Visita) turno).getPaciente().setPacienteobrasocial(new PacienteObraSocial(((Visita) turno).getPaciente()));
+                ((Visita) turno).getPaciente().getPacienteobrasocial().buscarObraSocial();
+
+                obrasocialpaciente = ((Visita) turno).getPaciente().getPacienteobrasocial().getObrasocial().get(0);
+
                 break;
             case "TurnoEstudio":
-                  ((TurnoEstudio)turno).getPaciente().setPacienteobrasocial(new PacienteObraSocial(   ((TurnoEstudio)turno).getPaciente()));
-                    ((TurnoEstudio)turno).getPaciente().getPacienteobrasocial().buscarObraSocial(conexion);
+                ((TurnoEstudio) turno).getPaciente().setPacienteobrasocial(new PacienteObraSocial(((TurnoEstudio) turno).getPaciente()));
+                ((TurnoEstudio) turno).getPaciente().getPacienteobrasocial().buscarObraSocial();
        
                  obrasocialpaciente = ((TurnoEstudio)turno).getPaciente().getPacienteobrasocial().getObrasocial().get(0);
                   break;
@@ -103,43 +91,35 @@ public class Turno {
          
          if(obrasocialpaciente.isActivo())
          {
-            if(obrasocialpaciente.verificarVencimiento(conexion,turno.getPaciente().getPacienteobrasocial().getFechavencimiento().get(0))==false)
-            {
-                if(turno.tipodeturno.equals("Realizar Estudio"))
-                {
-                    ((TurnoEstudio)turno).ProcesarTurnoEstudio(conexion);
+             if (obrasocialpaciente.verificarVencimiento(turno.getPaciente().getPacienteobrasocial().getFechavencimiento().get(0)) == false) {
+                 if (turno.tipodeturno.equals("Realizar Estudio")) {
+                     ((TurnoEstudio) turno).ProcesarTurnoEstudio();
 
-                }
-                else
-                {
-                    ((Visita)turno).ProcesarTurnoMedico(conexion);
-                }
+                 } else {
+                     ((Visita) turno).ProcesarTurnoMedico();
+                 }
             }
             else
             {
                 JOptionPane.showConfirmDialog(null, "La obra Social " +obrasocialpaciente.getNombreOS() + " del paciente " + turno.getPaciente().getApellido() + ", " + turno.getPaciente().getNombre() + " esta vencida.");
-                
+
             }
-         }
-         else
-         {
-             JOptionPane.showConfirmDialog(null, "La obra Social " +obrasocialpaciente.getNombreOS() + " no trabaja más con este consultorio médico." );
+         } else {
+             JOptionPane.showConfirmDialog(null, "La obra Social " + obrasocialpaciente.getNombreOS() + " no trabaja más con este consultorio médico.");
          }
     }
 
 
-    public static void MostrarTurno(ConexionDB conexion, Turno turno) {
-       turno.almacenarTurno(conexion);
-       switch(turno.tipodeturno)
-       {
-           case "Realizar Estudio":
-               EstudioTerciarizado estudioterciarizado;
-               estudioterciarizado = new EstudioTerciarizado(((TurnoEstudio)turno).getEstudio().estudio);
-               
-               estudioterciarizado.inicializarEstudioTerciarizado(conexion);
-               
-               if(estudioterciarizado.getAbreviatura()!=null)
-               {
+    public static void MostrarTurno(Turno turno) {
+        turno.almacenarTurno();
+        switch (turno.tipodeturno) {
+            case "Realizar Estudio":
+                EstudioTerciarizado estudioterciarizado;
+                estudioterciarizado = new EstudioTerciarizado(((TurnoEstudio) turno).getEstudio().estudio);
+
+                estudioterciarizado.inicializarEstudioTerciarizado();
+
+                if (estudioterciarizado.getAbreviatura() != null) {
                    ((TurnoEstudio)turno).setEstudio(estudioterciarizado);
                    
                }
@@ -160,18 +140,24 @@ public class Turno {
         this.paciente=paciente;
     }
 
-    public void almacenarTurno(ConexionDB conexion) {
+     public static void buscarTurnosdePaciente(List<Turno> turnosdepaciente,int codigopaciente) {
+         Visita.BuscarTurnodeVisitadePaciente(turnosdepaciente, codigopaciente);
+         TurnoEstudio.BuscarTurnodeEstudiodePaciente(turnosdepaciente, codigopaciente);
+
+
+     }
+
+    public void almacenarTurno() {
         CallableStatement procedimiento;
-        
-        
-       switch(this.tipodeturno)
-       {
-           case "Realizar Estudio":
-          
-              
+
+
+        switch (this.tipodeturno) {
+            case "Realizar Estudio":
+
+
                 try {
-                    procedimiento = conexion.getConexion().prepareCall("CALL ALMACENAR_TURNO_ESTUDIO(?,?,?,?,?)");
-                     procedimiento.setInt("codigopaciente",this.paciente.getCodigopaciente() );
+                    procedimiento = ConexionDB.getConexion().prepareCall("CALL ALMACENAR_TURNO_ESTUDIO(?,?,?,?,?)");
+                    procedimiento.setInt("codigopaciente", this.paciente.getCodigopaciente());
                         procedimiento.setDate("fechaturno",this.fechaturno );
                         procedimiento.setTime("horaturno",this.horarioturno );
                         procedimiento.setString("nombre_estudio", ((TurnoEstudio)this).getEstudio().getEstudio());
@@ -184,14 +170,14 @@ public class Turno {
                 } catch (SQLException ex) {
 
                 }
-               
-                
+
+
                break;
            case "Visitar Especialista":
-        
+
                 try {
-                    procedimiento = conexion.getConexion().prepareCall("CALL ALMACENAR_TURNO_VISITA(?,?,?,?,?)");
-                     procedimiento.setInt("codigopaciente",this.paciente.getCodigopaciente() );
+                    procedimiento = ConexionDB.getConexion().prepareCall("CALL ALMACENAR_TURNO_VISITA(?,?,?,?,?)");
+                    procedimiento.setInt("codigopaciente", this.paciente.getCodigopaciente());
                         procedimiento.setDate("fechaturno",this.fechaturno );
                         procedimiento.setTime("horaturno",this.horarioturno );
                         procedimiento.setInt("codigomedico", ((Visita)this).getMedico().getCodigoMed());
@@ -204,14 +190,14 @@ public class Turno {
                 } catch (SQLException ex) {
 
                 }
-               
-               
-             
+
+
+
                break;
            default :
                try {
-                    procedimiento = conexion.getConexion().prepareCall("CALL ALMACENAR_TURNO_VISITA(?,?,?,?,?)");
-                     procedimiento.setInt("codigopaciente",this.paciente.getCodigopaciente() );
+                   procedimiento = ConexionDB.getConexion().prepareCall("CALL ALMACENAR_TURNO_VISITA(?,?,?,?,?)");
+                   procedimiento.setInt("codigopaciente", this.paciente.getCodigopaciente());
                         procedimiento.setDate("fechaturno",this.fechaturno );
                         procedimiento.setTime("horaturno",this.horarioturno );
                         procedimiento.setInt("codigomedico", ((Visita)this).getMedico().getCodigoMed());
@@ -224,36 +210,26 @@ public class Turno {
                 } catch (SQLException ex) {
 
                 }
-               
-             
-               
-                
-                
+
+
+
+
+
                break;
        }
-       
-       
-       
-         
-       
-       
-       
-       
-    }
 
-     public static void buscarTurnosdePaciente(List<Turno> turnosdepaciente,int codigopaciente) {
-           ConexionDB conexion = new ConexionDB();
-           Visita.BuscarTurnodeVisitadePaciente(conexion,turnosdepaciente,codigopaciente);
-           TurnoEstudio.BuscarTurnodeEstudiodePaciente(conexion,turnosdepaciente,codigopaciente);
-           
-           
-   
-     }
+
+
+
+
+
+
+
+    }
 
     public void cancelarTurno() {
         try {
-            ConexionDB conexion = new ConexionDB();
-              CallableStatement procedimiento = conexion.getConexion().prepareCall("CALL CancelarTurno(?)");
+            CallableStatement procedimiento = ConexionDB.getConexion().prepareCall("CALL CancelarTurno(?)");
               procedimiento.setInt("codigo_turno",this.codigoturno);
               procedimiento.execute();
               

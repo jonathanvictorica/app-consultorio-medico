@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -29,19 +25,16 @@ public class Usuario {
     public boolean ValidarUsuario()
     {
         try {
-            ConexionDB conexion = new ConexionDB();
-            
-             java.sql.Statement statement = conexion.getConexion().createStatement();
-                ResultSet rs = statement.executeQuery("SELECT * from users where nombre='"+this.nombre+"' and cargo = '" + this.cargo+ "'");
-                if(rs.next())
-                {
-                                  
-                    this.cargo=rs.getString(4);
-                    if(this.clave.equals(rs.getString(3)))
-                    {
-                        JOptionPane.showMessageDialog(null, "Bienvenido al Sistema!!!");
-                        return true;
-                    }
+
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * from users where nombre='" + this.nombre + "' and cargo = '" + this.cargo + "'");
+            if (rs.next()) {
+
+                this.cargo = rs.getString(4);
+                if (this.clave.equals(rs.getString(3))) {
+                    JOptionPane.showMessageDialog(null, "Bienvenido al Sistema!!!");
+                    return true;
+                }
                     else
                     {
                         JOptionPane.showMessageDialog(null, "La constraseña es incorrecta");
@@ -60,19 +53,17 @@ public class Usuario {
           return false; 
         
     }
-            
-    public void registrarUsuario(ConexionDB conexion)
-    {
-         try {
-           
-             java.sql.Statement statement = conexion.getConexion().createStatement();
-                ResultSet rs = statement.executeQuery("SELECT * from users where nombre='"+this.nombre+"'");
-                if(!rs.next())
-                {
-                        try {
-                             CallableStatement procedimiento;
-                       procedimiento = conexion.getConexion().prepareCall("CALL RegistrarUsuario(?,?,?)");
-                       procedimiento.setString("nombre",this.nombre );
+
+    public void registrarUsuario() {
+        try {
+
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * from users where nombre='" + this.nombre + "'");
+            if (!rs.next()) {
+                try {
+                    CallableStatement procedimiento;
+                    procedimiento = ConexionDB.getConexion().prepareCall("CALL RegistrarUsuario(?,?,?)");
+                    procedimiento.setString("nombre", this.nombre);
                         procedimiento.setString("clave",this.clave );
                         procedimiento.setString("cargo",this.cargo );
                         
@@ -99,18 +90,17 @@ public class Usuario {
         this.cargo=cargo;
     }
 
-   
-    public void modificarUsuario(ConexionDB conexion, String contranueva) {
-       try {
-                             CallableStatement procedimiento;
-                       procedimiento = conexion.getConexion().prepareCall("CALL modificarcontrasenia(?,?)");
-                       procedimiento.setString("nombreusuario",this.nombre );
-                        procedimiento.setString("clavenueva",contranueva);
-                        
-                        
 
-                        procedimiento.execute();
-                        JOptionPane.showMessageDialog(null, "La contraseña ha sido modificada exitosamente.");
+    public void modificarUsuario(String contranueva) {
+        try {
+            CallableStatement procedimiento;
+            procedimiento = ConexionDB.getConexion().prepareCall("CALL modificarcontrasenia(?,?)");
+            procedimiento.setString("nombreusuario", this.nombre);
+            procedimiento.setString("clavenueva", contranueva);
+
+
+            procedimiento.execute();
+            JOptionPane.showMessageDialog(null, "La contraseña ha sido modificada exitosamente.");
                       
                 } catch (SQLException ex) {
 

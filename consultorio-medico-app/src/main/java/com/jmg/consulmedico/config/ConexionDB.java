@@ -1,13 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.jmg.consulmedico.config;
 
-/**
- *
- * @author Alumno
- */
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -16,43 +9,44 @@ import java.sql.SQLException;
 
 
 public class ConexionDB {
-    private   java.sql.Connection conexion;
 
-    public Connection getConexion() {
-        return conexion;
-    }
-  
-    
-    
-    public ConexionDB()
-    {
-       
-       
-        try
-        {
+    private static ConexionDB INSTANCE = null;
+
+
+    private Connection conexion;
+
+    private ConexionDB() {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             String servidor = "jdbc:mysql://localhost:3306/consultoriomedico";
-            String usuarioDB="root";
-            String passwordDB="";
-           
-            conexion = (java.sql.Connection) DriverManager.getConnection(servidor,usuarioDB,passwordDB);
-    
+            String usuarioDB = "root";
+            String passwordDB = "";
+
+            conexion = (Connection) DriverManager.getConnection(servidor, usuarioDB, passwordDB);
+
+        } catch (ClassNotFoundException ex) {
+            mostrarmensajebasededatos();
+            conexion = null;
+        } catch (SQLException ex) {
+            mostrarmensajebasededatos();
+            conexion = null;
+        } catch (Exception ex) {
+            mostrarmensajebasededatos();
+            conexion = null;
         }
-        catch(ClassNotFoundException ex)
-        {
-            JOptionPane.showMessageDialog(null, ex, "Error1 en la Conexión con la com.jmg.consulmedico.BD "+ex.getMessage(), JOptionPane.ERROR_MESSAGE);
-            conexion=null;
+
+    }
+
+    public static Connection getConexion() {
+        if (INSTANCE == null) {
+            INSTANCE = new ConexionDB();
         }
-        catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null, ex, "Error2 en la Conexión con la com.jmg.consulmedico.BD "+ex.getMessage(), JOptionPane.ERROR_MESSAGE);
-            conexion=null;
-        }
-        catch(Exception ex)
-        {
-            JOptionPane.showMessageDialog(null, ex, "Error3 en la Conexión con la com.jmg.consulmedico.BD "+ex.getMessage(), JOptionPane.ERROR_MESSAGE);
-            conexion=null;
-        }
-        
+
+        return INSTANCE.conexion;
+    }
+
+    public static void mostrarmensajebasededatos() {
+        JOptionPane.showMessageDialog(null, "Lo sentimos. En este momento nuestro servidor no esta disponible. Vuelva a entrar más tarde");
+        System.exit(0);
     }
 }

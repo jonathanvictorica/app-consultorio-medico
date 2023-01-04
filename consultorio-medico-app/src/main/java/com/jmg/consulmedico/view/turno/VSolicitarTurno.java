@@ -1,21 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.turno;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.*;
 import org.edisoncor.gui.panel.PanelImage;
 
 import javax.swing.*;
 import java.util.List;
 
-/**
- *
- * @author Alumno
- */
+
 public class VSolicitarTurno extends javax.swing.JFrame {
       Paciente paciente = null;
       Turno turnopaciente = null;
@@ -180,7 +172,7 @@ public class VSolicitarTurno extends javax.swing.JFrame {
             }
           
             
-            Turno.ProcesarSolicituddeTurno(new ConexionDB(),this.turnopaciente);
+            Turno.ProcesarSolicituddeTurno(this.turnopaciente);
             this.hide();
             
         }
@@ -252,7 +244,7 @@ public class VSolicitarTurno extends javax.swing.JFrame {
     private void cboTipodeTurnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboTipodeTurnoItemStateChanged
         if(this.cboTipodeTurno.getSelectedItem().equals("Realizar Estudio"))
         {
-            List<Estudio> estudios = Estudio.retornarEstudios(new ConexionDB());
+            List<Estudio> estudios = Estudio.retornarEstudios();
            this.cboTipo.removeAllItems();
              this.lblTipo.setVisible(true);
            this.lblTipo.setText("Estudios");
@@ -270,7 +262,7 @@ public class VSolicitarTurno extends javax.swing.JFrame {
                 this.lblTipo.setText("Especialidad");
                 this.lblTipo.setVisible(true);
                 this.cboTipo.setVisible(true);
-                List<Especialidad> especialidades = Especialidad.retornarEspecialidad(new ConexionDB());
+                List<Especialidad> especialidades = Especialidad.retornarEspecialidad();
                 this.cboTipo.removeAllItems();
                 for(int i=0;i<especialidades.size();i++)
                 {
@@ -292,7 +284,7 @@ public class VSolicitarTurno extends javax.swing.JFrame {
     }//GEN-LAST:event_cboTipodeTurnoItemStateChanged
 
     private void txtDniPacienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniPacienteKeyReleased
-            this.paciente = Paciente.inicializarPaciente(new ConexionDB(), this.txtDniPaciente.getText());
+        this.paciente = Paciente.inicializarPaciente(this.txtDniPaciente.getText());
             if( this.paciente!=null)
             {
                 this.txtNombredePaciente.setText( this.paciente.getNombre());
@@ -391,7 +383,7 @@ public class VSolicitarTurno extends javax.swing.JFrame {
 
     private Estudio retornarEstudio() {
          Estudio estudio = new Estudio((String)this.cboTipo.getSelectedItem());
-        estudio.inicializarEstudio(new ConexionDB());
+        estudio.inicializarEstudio();
         return estudio;
     }
 

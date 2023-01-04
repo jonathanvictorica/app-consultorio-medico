@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.medicocabecera;
 
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.Especialidad;
 import com.jmg.consulmedico.model.Medico;
 import com.jmg.consulmedico.model.PacienteMedicoCabecera;
@@ -12,23 +7,19 @@ import com.jmg.consulmedico.model.PacienteMedicoCabecera;
 import javax.swing.*;
 import java.util.List;
 
-/**
- *
- * @author Alumno
- */
 public class VAutorizarVisitaEspecialista extends javax.swing.JFrame {
   
 
     
     public VAutorizarVisitaEspecialista(int codigomedico) {
         initComponents();
-         List<String> nombrepacientes = Medico.retornarPacientesdeMedico(new ConexionDB(),codigomedico);
+         List<String> nombrepacientes = Medico.retornarPacientesdeMedico(codigomedico);
          for(int i=0;i<nombrepacientes.size();i++)
          {
              
              this.cboPacientes.addItem(nombrepacientes.get(i));
          }
-         List<Especialidad> especialidades = Especialidad.retornarEspecialidad(new ConexionDB());
+        List<Especialidad> especialidades = Especialidad.retornarEspecialidad();
          for(int i=0;i<especialidades.size();i++)
          {
              if(!especialidades.get(i).equals("Médico"))
@@ -137,8 +128,8 @@ public class VAutorizarVisitaEspecialista extends javax.swing.JFrame {
     private void cmdAutorizarEstudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAutorizarEstudioActionPerformed
         if(this.validarDatos())
         {
-            PacienteMedicoCabecera.autorizarVisita(new ConexionDB(),(String)this.cboPacientes.getSelectedItem(),(String)this.cboEspecialidad.getSelectedItem());
-        this.hide();
+            PacienteMedicoCabecera.autorizarVisita((String) this.cboPacientes.getSelectedItem(), (String) this.cboEspecialidad.getSelectedItem());
+            this.hide();
         }
         else
         {
@@ -146,9 +137,7 @@ public class VAutorizarVisitaEspecialista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmdAutorizarEstudioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     private boolean validarDatos() {
         if(this.cboPacientes.getSelectedIndex()==-1)
         {

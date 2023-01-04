@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -36,18 +32,17 @@ public class Estudio {
     }
 
 
-     public static List<Estudio> retornarEstudios(ConexionDB conexion) {
-        List<Estudio> estudios = new ArrayList<>();
+     public static List<Estudio> retornarEstudios() {
+         List<Estudio> estudios = new ArrayList<>();
          try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * from estudio");
-            while(rs.next())
-            {
-                Estudio estudionuevo = new Estudio(rs.getInt(1),rs.getString(2));
-                estudios.add(estudionuevo);
-            }
-            
-        } catch (SQLException ex) {
+             java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+             ResultSet rs = statement.executeQuery("SELECT * from estudio");
+             while (rs.next()) {
+                 Estudio estudionuevo = new Estudio(rs.getInt(1), rs.getString(2));
+                 estudios.add(estudionuevo);
+             }
+
+         } catch (SQLException ex) {
           
         }
          return estudios;
@@ -55,36 +50,12 @@ public class Estudio {
           
     }
 
-   public void buscarHorarioDisponible(List<Time> horarios) {
-         ConexionDB conexion = new ConexionDB();
-       int minutos=-10;
-        for(int i=0;i<72;i++)
-        {
-            try {
-                minutos=minutos+10;
-                 java.sql.Statement statement = conexion.getConexion().createStatement();
-                ResultSet rs = statement.executeQuery("SELECT time('2003-12-12 07:00:00' + interval "+ minutos + " minute)");
-                if(rs.next())
-                {
-                  horarios.add(rs.getTime(1));
-                  
-                    
-                }
-            } catch (SQLException ex) {
-               
-            }
-            
-                    
-        }
-    }
-
     public static String retornarNombreDia(Date date) {
-           ConexionDB conexion = new ConexionDB();
-     
+
             try {
-               
-                 java.sql.Statement statement = conexion.getConexion().createStatement();
-                ResultSet rs = statement.executeQuery("SELECT  dayname('" +  date + "')");
+
+                java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+                ResultSet rs = statement.executeQuery("SELECT  dayname('" + date + "')");
                 if(rs.next())
                 {
                     String diaseleccionado;
@@ -104,27 +75,48 @@ public class Estudio {
                         default :
                             return "";
                     }
-                  
-                    
+
+
                 }
             } catch (SQLException ex) {
-               
+
             }
-           return ""; 
-                    
-        
+           return "";
+
+
     }
 
-    public void inicializarEstudio(ConexionDB conexion) {
+   public void buscarHorarioDisponible(List<Time> horarios) {
+       int minutos=-10;
+        for(int i=0;i<72;i++)
+        {
+            try {
+                minutos=minutos+10;
+                java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+                ResultSet rs = statement.executeQuery("SELECT time('2003-12-12 07:00:00' + interval " + minutos + " minute)");
+                if(rs.next())
+                {
+                  horarios.add(rs.getTime(1));
+
+
+                }
+            } catch (SQLException ex) {
+
+            }
+
+
+        }
+    }
+
+    public void inicializarEstudio() {
         try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
-     ResultSet rs = statement.executeQuery("select  * from estudio where nombreestudio '"+this.estudio+"'");
-      if(rs.next())
-      {
-          this.codest=rs.getInt(1);
-          this.estudio=rs.getString(2);
-          
-      }
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+            ResultSet rs = statement.executeQuery("select  * from estudio where nombreestudio '" + this.estudio + "'");
+            if (rs.next()) {
+                this.codest = rs.getInt(1);
+                this.estudio = rs.getString(2);
+
+            }
         } catch (SQLException ex) {
             
         }

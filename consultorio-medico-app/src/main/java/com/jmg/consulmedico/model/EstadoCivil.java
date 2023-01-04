@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import lombok.Getter;
@@ -18,14 +14,4 @@ public class EstadoCivil {
     }
 
 
-    public int buscarestadocivil()
-    {
-        int codigoestadocivil=0;
-        
-        return codigoestadocivil;
-    }
-
-   
-    
-    
 }

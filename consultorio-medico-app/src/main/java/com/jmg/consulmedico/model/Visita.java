@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -47,42 +43,14 @@ public class Visita extends Turno{
         return medico;
     }
 
-    public void ProcesarTurnoMedico(ConexionDB conexion) {
-        if(medicocabecera)
-        {
-            this.paciente.setPacientemedicocabezera(new PacienteMedicoCabecera(this.paciente));
-            this.paciente.getPacientemedicocabezera().buscarMedicoCabecera(conexion);
-            this.medico=this.paciente.getPacientemedicocabezera().getMedico().get(0);
-            
-            VHorarioMedicoCabecera vhorariomedicos = new VHorarioMedicoCabecera(this);
-        }
-        else
-        {
-                if(this.paciente.verificarTurnoconMedico(conexion, this.medico.getEspecialidad()))
-                {
-                          VHorarioMedico vhorariomedico = new VHorarioMedico(this);
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "El Paciente no esta autorizado por su medico de cabecera a visitar un especialista.");
-                }
-        }
-    }
-
-   
-    public void inicializarTurnoVisita(ConexionDB conexion) {
-        
-    }
-  
-    
     public static List<Medico> llenarMedicosDisponibles(JComboBox cboMedicos, Date date, Visita visita, String nombreEsp) {
         String dia = Estudio.retornarNombreDia(date);
         List<Medico> medicos = new ArrayList<>();
         if(!"".equals(dia))
         {
             cboMedicos.removeAllItems();
-           
-            Visita.buscarMedicosdeEspecialidad(new ConexionDB(),medicos,nombreEsp,dia);
+
+            Visita.buscarMedicosdeEspecialidad(medicos, nombreEsp, dia);
 
 
               cboMedicos.addItem("");
@@ -92,7 +60,7 @@ public class Visita extends Turno{
 
             }
             cboMedicos.setEnabled(true);
-        
+
         }
         else
         {
@@ -100,26 +68,38 @@ public class Visita extends Turno{
         }
         return medicos;
     }
-    
-    
-     private static void buscarMedicosdeEspecialidad(ConexionDB conexion, List<Medico> medicos, String nombreEsp,String dia) {
+
+    private static void buscarMedicosdeEspecialidad(List<Medico> medicos, String nombreEsp, String dia) {
         try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
-            ResultSet rs = statement.executeQuery("select distinct medico.codigomedico,nombre,apellido,numeromatricula from medico,especialidad,medicohorario where medico.codigomedico = medicohorario.codigomedico and medicohorario.dia = '" + dia + "' and especialidad.codigoespecialidad=medico.codigoespecialidad and nombreespecialidad = '"+ nombreEsp + "'");
-            while(rs.next())
-            {
-                Medico mediconuevo = new Medico(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4));
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+            ResultSet rs = statement.executeQuery("select distinct medico.codigomedico,nombre,apellido,numeromatricula from medico,especialidad,medicohorario where medico.codigomedico = medicohorario.codigomedico and medicohorario.dia = '" + dia + "' and especialidad.codigoespecialidad=medico.codigoespecialidad and nombreespecialidad = '" + nombreEsp + "'");
+            while (rs.next()) {
+                Medico mediconuevo = new Medico(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
                 mediconuevo.setEspecialidad(new Especialidad(nombreEsp));
-                
-                
+
+
                 medicos.add(mediconuevo);
             }
 
 
         } catch (SQLException ex) {
-           
+
         }
-              
+
+    }
+
+    static void BuscarTurnodeVisitadePaciente(List<Turno> turnosdepaciente, int codigopaciente) {
+        try {
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+            ResultSet rs = statement.executeQuery("select * from verturnosvisita where codigopaciente=" + codigopaciente);
+            while (rs.next()) {
+                Visita visitamedico = new Visita(new Medico(rs.getString(5), rs.getString(6), rs.getString(4), new Especialidad(rs.getString(7))), rs.getInt(1), new Paciente(), rs.getDate(2), rs.getTime(3), true);
+                turnosdepaciente.add(visitamedico);
+            }
+        } catch (SQLException ex) {
+
+        }
+
     }
 
     public void setMedico(Medico medico) {
@@ -169,34 +149,34 @@ public class Visita extends Turno{
         }
         
     }
-     
-     
-     static void BuscarTurnodeVisitadePaciente(ConexionDB conexion,List<Turno> turnosdepaciente, int codigopaciente) {
-        try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
-              ResultSet rs = statement.executeQuery("select * from verturnosvisita where codigopaciente="+ codigopaciente );
-              while(rs.next())
-              {
-                  Visita visitamedico = new Visita(new Medico(rs.getString(5), rs.getString(6),rs.getString(4) , new Especialidad(rs.getString(7))) , rs.getInt(1), new Paciente(), rs.getDate(2), rs.getTime(3), true);
-                  turnosdepaciente.add(visitamedico);
-              }
-        } catch (SQLException ex) {
-         
+
+    public void ProcesarTurnoMedico() {
+        if (medicocabecera) {
+            this.paciente.setPacientemedicocabezera(new PacienteMedicoCabecera(this.paciente));
+            this.paciente.getPacientemedicocabezera().buscarMedicoCabecera();
+            this.medico = this.paciente.getPacientemedicocabezera().getMedico().get(0);
+
+            VHorarioMedicoCabecera vhorariomedicos = new VHorarioMedicoCabecera(this);
+        } else {
+            if (this.paciente.verificarTurnoconMedico(this.medico.getEspecialidad())) {
+                VHorarioMedico vhorariomedico = new VHorarioMedico(this);
+            } else {
+                JOptionPane.showMessageDialog(null, "El Paciente no esta autorizado por su medico de cabecera a visitar un especialista.");
+            }
         }
-            
     }
 
-    public void procesarTurnoVisita(ConexionDB conexion) {
-         try {
-             CallableStatement procedimiento = conexion.getConexion().prepareCall("CALL ModificarEstadoTurno(?)");
-                procedimiento.setInt("codigo_visita",this.codigoturno);
-                
-                  
-                procedimiento.execute();
-                JOptionPane.showMessageDialog(null, "El turno del Paciente ha sido atendido. El médico correspondiente lo atenderá.");
-                
+    public void procesarTurnoVisita() {
+        try {
+            CallableStatement procedimiento = ConexionDB.getConexion().prepareCall("CALL ModificarEstadoTurno(?)");
+            procedimiento.setInt("codigo_visita", this.codigoturno);
+
+
+            procedimiento.execute();
+            JOptionPane.showMessageDialog(null, "El turno del Paciente ha sido atendido. El médico correspondiente lo atenderá.");
+
         } catch (SQLException ex) {
-           
+
         }
 
     }

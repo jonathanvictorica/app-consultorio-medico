@@ -1,16 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.turno;
 
 import com.jmg.consulmedico.model.Turno;
 import com.jmg.consulmedico.model.Visita;
 
-/**
- *
- * @author Alumno
- */
+
 public class VMostrarTurnoVisitaMedico extends javax.swing.JFrame {
 
     private Turno turnomedico;

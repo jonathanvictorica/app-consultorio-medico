@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
@@ -11,10 +7,7 @@ import com.jmg.consulmedico.view.medicocabecera.VOpcionesMedico;
 
 import javax.swing.*;
 
-/**
- *
- * @author Alumno
- */
+
 public class VLoginSistema extends javax.swing.JFrame {
    
 

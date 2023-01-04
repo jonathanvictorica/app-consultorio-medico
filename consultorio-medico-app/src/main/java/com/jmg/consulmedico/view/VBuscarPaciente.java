@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view;
 
 import com.jmg.consulmedico.model.Paciente;
@@ -11,10 +7,7 @@ import com.jmg.consulmedico.view.turno.VCancelarTurno;
 
 import javax.swing.*;
 
-/**
- *
- * @author Alumno
- */
+
 public class VBuscarPaciente extends javax.swing.JFrame {
 
     private String redireccionamiento ="";

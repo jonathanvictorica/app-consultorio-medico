@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.medico;
 
 import com.jmg.consulmedico.model.Especialidad;
@@ -9,10 +5,7 @@ import com.jmg.consulmedico.model.Medico;
 
 import javax.swing.*;
 
-/**
- *
- * @author Alumno
- */
+
 public class VAltaMedico extends javax.swing.JFrame {
 
 

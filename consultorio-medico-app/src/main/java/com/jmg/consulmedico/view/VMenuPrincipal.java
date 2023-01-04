@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view;
 
 import com.jmg.consulmedico.model.Usuario;
@@ -13,10 +9,7 @@ import com.jmg.consulmedico.view.usuario.VModificarUsuario;
 
 import javax.swing.*;
 
-/**
- *
- * @author Alumno
- */
+
 public class VMenuPrincipal extends javax.swing.JFrame {
 
     private Usuario usuario;

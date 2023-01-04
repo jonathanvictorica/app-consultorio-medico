@@ -1,19 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.usuario;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.Usuario;
 
 import javax.swing.*;
 
-/**
- *
- * @author Alumno
- */
+
 public class VModificarUsuario extends javax.swing.JFrame {
 
     private Usuario usuariomodificar;
@@ -100,8 +92,8 @@ public class VModificarUsuario extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
               if(this.validardatos())
               {
-        usuariomodificar.modificarUsuario(new ConexionDB(),this.txtContraseña1.getText());
-                 this.hide();
+                  usuariomodificar.modificarUsuario(this.txtContraseña1.getText());
+                  this.hide();
               }
     }//GEN-LAST:event_jButton1ActionPerformed
 

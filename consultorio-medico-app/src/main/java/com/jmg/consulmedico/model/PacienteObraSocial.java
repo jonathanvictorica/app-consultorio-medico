@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -33,17 +29,16 @@ public class PacienteObraSocial {
 
 
 
-    public void buscarObraSocial(ConexionDB conexion) {
+    public void buscarObraSocial() {
         try {
-        
-            java.sql.Statement statement = conexion.getConexion().createStatement();
-           ResultSet rs = statement.executeQuery("select * from pacienteobrasocial_actualizado where codigopaciente ="+ this.paciente.getCodigopaciente()+"");
-           if(rs.next())
-           {
-               ObraSocial obrasocialnuevo = new ObraSocial(rs.getInt(1),rs.getString(2),new Localidad(rs.getString(3)),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+            ResultSet rs = statement.executeQuery("select * from pacienteobrasocial_actualizado where codigopaciente =" + this.paciente.getCodigopaciente() + "");
+            if (rs.next()) {
+                ObraSocial obrasocialnuevo = new ObraSocial(rs.getInt(1), rs.getString(2), new Localidad(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
                 obrasocialnuevo.setActivo(rs.getBoolean(11));
-               this.obrasocial.add(obrasocialnuevo);
-               this.numerodeafiliado.add(rs.getString(8));
+                this.obrasocial.add(obrasocialnuevo);
+                this.numerodeafiliado.add(rs.getString(8));
                this.fechavencimiento.add(rs.getDate(9));
                
            }

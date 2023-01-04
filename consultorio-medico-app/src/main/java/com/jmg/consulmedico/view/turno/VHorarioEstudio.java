@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.turno;
 
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.Turno;
 import com.jmg.consulmedico.model.TurnoEstudio;
 
@@ -12,10 +7,7 @@ import javax.swing.*;
 import java.sql.Date;
 import java.sql.Time;
 
-/**
- *
- * @author Alumno
- */
+
 public class VHorarioEstudio extends javax.swing.JFrame {
 
    private Turno turnoestudio;
@@ -231,9 +223,9 @@ public class VHorarioEstudio extends javax.swing.JFrame {
       if(this.validardatos())
       {
         this.turnoestudio.setFechaturno((Date)this.cboFechas.getSelectedItem());
-       this.turnoestudio.setHorarioturno((Time)this.cboHorarios.getSelectedItem());
-       Turno.MostrarTurno(new ConexionDB(),this.turnoestudio);
-       this.hide();
+          this.turnoestudio.setHorarioturno((Time) this.cboHorarios.getSelectedItem());
+          Turno.MostrarTurno(this.turnoestudio);
+          this.hide();
       }
     }//GEN-LAST:event_cmdAgendarTurnoActionPerformed
 

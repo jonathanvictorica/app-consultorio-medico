@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -34,10 +30,9 @@ public class GrupoSanguineo {
    
     
     public static void llenarGruposSanguineo(JComboBox cboGrupoSanguineo) {
-        ConexionDB conexion = new ConexionDB();
-        
+
         try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
+            java.sql.Statement statement = ConexionDB.getConexion().createStatement();
             ResultSet rs = statement.executeQuery("SELECT * from gruposanguineo");
            cboGrupoSanguineo.removeAllItems();
             cboGrupoSanguineo.addItem("      ");

@@ -1,17 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.medicocabecera;
 
 import com.jmg.consulmedico.model.Medico;
 import com.jmg.consulmedico.model.Usuario;
 import com.jmg.consulmedico.view.usuario.VModificarUsuario;
 
-/**
- *
- * @author Alumno
- */
+
 public class VOpcionesMedico extends javax.swing.JFrame {
 
     private Medico medico;

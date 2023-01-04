@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view;
 
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.Paciente;
 import com.jmg.consulmedico.model.Turno;
 import com.jmg.consulmedico.model.TurnoEstudio;
@@ -16,10 +11,6 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Alumno
- */
 public class VCambiarTurno extends javax.swing.JFrame {
 
     private Paciente paciente;
@@ -317,8 +308,8 @@ public class VCambiarTurno extends javax.swing.JFrame {
                       this.turnosdepaciente.get(i).setFechaturno((Date)this.cboFechas.getSelectedItem());
                       this.turnosdepaciente.get(i).setHorarioturno((Time)this.cboHorarios.getSelectedItem());
          
-                      this.turnosdepaciente.get(i).almacenarTurno(new ConexionDB());
-                      JOptionPane.showMessageDialog(panelImage1, "El turno fue modificado exitosamente."); 
+                      this.turnosdepaciente.get(i).almacenarTurno();
+                       JOptionPane.showMessageDialog(panelImage1, "El turno fue modificado exitosamente.");
                    }
         }
          this.repaint();

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.procesarestudio;
 
 import com.jmg.consulmedico.model.Paciente;
@@ -13,10 +9,6 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Alumno
- */
 public class VProcesarEstudio extends javax.swing.JFrame {
 
     private Paciente paciente;

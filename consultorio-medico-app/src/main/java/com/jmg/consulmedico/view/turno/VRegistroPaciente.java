@@ -1,11 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.turno;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.*;
 
 import javax.swing.*;
@@ -13,19 +8,16 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Alumno
- */
-public class VRegistroPaciente extends javax.swing.JFrame {  
-    private ConexionDB conexion = new ConexionDB();
+
+public class VRegistroPaciente extends javax.swing.JFrame {
+
     private Paciente paciente;
-   private List<Medico> medicos = new ArrayList<>();
-   private List<ObraSocial> obrasocial  = new ArrayList<>();
-   
-   private Turno turnopaciente;
-   
-    
+    private List<Medico> medicos = new ArrayList<>();
+    private List<ObraSocial> obrasocial = new ArrayList<>();
+
+    private Turno turnopaciente;
+
+
     public VRegistroPaciente() {
         initComponents();
       
@@ -108,11 +100,11 @@ public class VRegistroPaciente extends javax.swing.JFrame {
     }
 
     private void llenarMedicos() {
-        Medico.BuscarMedicosdeCabeceras(this.conexion,this.medicos);
+        Medico.BuscarMedicosdeCabeceras(this.medicos);
     }
     
     private void llenarObrasSociales() {
-        ObraSocial.BuscarObrasSocialesActiva(this.conexion,this.obrasocial);
+        ObraSocial.BuscarObrasSocialesActiva(this.obrasocial);
         
     }
     @SuppressWarnings("unchecked")
@@ -442,9 +434,9 @@ public class VRegistroPaciente extends javax.swing.JFrame {
         this.paciente.setPacientemedicocabezera(new PacienteMedicoCabecera(this.paciente));
         this.paciente.getPacientemedicocabezera().getMedico().add(this.medicos.get(this.cboMedicoCabecera.getSelectedIndex()));
         */
-        this.paciente.almacenarPaciente(conexion);
-        
-        this.paciente=Paciente.inicializarPaciente(conexion, this.txtDniPaciente.getText());
+          this.paciente.almacenarPaciente();
+
+          this.paciente = Paciente.inicializarPaciente(this.txtDniPaciente.getText());
         
      
          switch(this.turnopaciente.getClass().getSimpleName())
@@ -457,11 +449,11 @@ public class VRegistroPaciente extends javax.swing.JFrame {
                     break;
                     
             }
-           
-     
-          JOptionPane.showMessageDialog(panelImage1, "El Paciente fue registrado con exito!!!");  
-         Turno.ProcesarSolicituddeTurno(new ConexionDB(),this.turnopaciente);
-         this.hide();
+
+
+          JOptionPane.showMessageDialog(panelImage1, "El Paciente fue registrado con exito!!!");
+          Turno.ProcesarSolicituddeTurno(this.turnopaciente);
+          this.hide();
       }
     }//GEN-LAST:event_cmdRegistrarPacienteActionPerformed
 

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.model;
 
 import com.jmg.consulmedico.config.ConexionDB;
@@ -32,18 +28,17 @@ public class Especialidad {
 
 
     
-     public static List<Especialidad> retornarEspecialidad(ConexionDB conexion) {
-        List<Especialidad> especialidades = new ArrayList<>();
+     public static List<Especialidad> retornarEspecialidad() {
+         List<Especialidad> especialidades = new ArrayList<>();
          try {
-            java.sql.Statement statement = conexion.getConexion().createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * from especialidad");
-            while(rs.next())
-            {
-                Especialidad especialidadnueva = new Especialidad(rs.getInt(1),rs.getString(2));
-                especialidades.add(especialidadnueva);
-            }
-            
-        } catch (SQLException ex) {
+             java.sql.Statement statement = ConexionDB.getConexion().createStatement();
+             ResultSet rs = statement.executeQuery("SELECT * from especialidad");
+             while (rs.next()) {
+                 Especialidad especialidadnueva = new Especialidad(rs.getInt(1), rs.getString(2));
+                 especialidades.add(especialidadnueva);
+             }
+
+         } catch (SQLException ex) {
           
         }
          return especialidades;

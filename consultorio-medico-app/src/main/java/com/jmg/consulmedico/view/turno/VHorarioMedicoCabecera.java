@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.turno;
 
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.Medico;
 import com.jmg.consulmedico.model.Turno;
 import com.jmg.consulmedico.model.Visita;
@@ -13,10 +8,7 @@ import javax.swing.*;
 import java.sql.Date;
 import java.sql.Time;
 
-/**
- *
- * @author Alumno
- */
+
 public class VHorarioMedicoCabecera extends javax.swing.JFrame {
 
     private Medico medicos;
@@ -219,8 +211,8 @@ public class VHorarioMedicoCabecera extends javax.swing.JFrame {
     {
         this.turnomedico.setFechaturno((Date)this.cboFechas2.getSelectedItem());
         this.turnomedico.setHorarioturno((Time)this.cboHorarios2.getSelectedItem());
-      
-        Turno.MostrarTurno(new ConexionDB(),this.turnomedico);
+
+        Turno.MostrarTurno(this.turnomedico);
         this.hide();
     }
     }//GEN-LAST:event_cmdAgendarTurno2ActionPerformed

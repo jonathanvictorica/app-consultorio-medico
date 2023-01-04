@@ -1,19 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.medicocabecera;
 
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.Localidad;
 import com.jmg.consulmedico.model.ObraSocial;
 
 import javax.swing.*;
 
-/**
- *
- * @author Alumno
- */
+
 public class VAltaObraSocial extends javax.swing.JFrame {
     private JLabel jLabel1;
     private JLabel jLabel2;
@@ -197,8 +189,8 @@ public class VAltaObraSocial extends javax.swing.JFrame {
         if(this.validardatos())
         {
             ObraSocial obrasocial = new ObraSocial(this.txtNombreObraSocial.getText(), new Localidad(this.txtLocalidad.getText()), this.txtDireccion.getText(), this.txtAltura.getText(), this.txtTelefono.getText(),this.txtCodigoPostal.getText());
-            obrasocial.almacenarObraSocial(new ConexionDB(),this.jTextArea1.getText());
-             this.hide();
+            obrasocial.almacenarObraSocial(this.jTextArea1.getText());
+            this.hide();
         }
     }//GEN-LAST:event_cmdRegistrarObraSocialActionPerformed
 

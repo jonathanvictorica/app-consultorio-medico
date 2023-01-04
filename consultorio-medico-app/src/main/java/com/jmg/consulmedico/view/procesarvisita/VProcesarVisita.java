@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jmg.consulmedico.view.procesarvisita;
 
-import com.jmg.consulmedico.config.ConexionDB;
 import com.jmg.consulmedico.model.Paciente;
 import com.jmg.consulmedico.model.Turno;
 import com.jmg.consulmedico.model.Visita;
@@ -13,10 +8,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Alumno
- */
 public class VProcesarVisita extends javax.swing.JFrame {
 
     private Paciente paciente;
@@ -240,7 +231,7 @@ public class VProcesarVisita extends javax.swing.JFrame {
               {
                   if(this.cboFecha.getSelectedItem().equals(((Visita)this.turnosdepaciente.get(i)).getFechaturno()))
                   {
-                     ((Visita)this.turnosdepaciente.get(i)).procesarTurnoVisita(new ConexionDB());
+                     ((Visita) this.turnosdepaciente.get(i)).procesarTurnoVisita();
                       JOptionPane.showMessageDialog(null, "El turno del Paciente ha sido atendido. El médico correspondiente lo atenderá.");
               
                   }
